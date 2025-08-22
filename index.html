@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Precios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/CalcuadoraDePrecios/style.css">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <span class="theme-text">Modo claro</span>
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+    </div>
+
+    <div class="container">
+        <h1>Calculadora de Precios</h1>
+        <p class="description">Calcula el precio total de tu artículo incluyendo impuestos, comisiones y tipo de cambio.</p>
+        
+        <form id="priceCalculator">
+            <div class="form-group">
+                <label for="articlePrice">Precio del artículo (USD):</label>
+                <div class="input-container">
+                    <i class="input-icon fas fa-tag"></i>
+                    <input type="number" id="articlePrice" step="0.01" min="0" placeholder="Ej: 50.00" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="shippingCost">Costo de envío (USD):</label>
+                <div class="input-container">
+                    <i class="input-icon fas fa-shipping-fast"></i>
+                    <input type="number" id="shippingCost" step="0.01" min="0" placeholder="Ej: 10.00" required>
+                </div>
+            </div>
+            
+            <button type="submit">Calcular Precio Final</button>
+        </form>
+        
+        <div class="loader">
+            <div class="spinner"></div>
+            <p>Calculando...</p>
+        </div>
+        
+        <div class="result-container" id="resultContainer">
+            <div class="result-title"><i class="fas fa-calculator"></i> Resultado:</div>
+            <div class="result-item">
+                <span class="result-label"><i class="fas fa-exchange-alt"></i> Tipo de cambio</span>
+                <span class="result-value" id="exchangeRate">Esperando cálculo...</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label"><i class="fas fa-dollar-sign"></i> Precio en pesos</span>
+                <span class="result-value" id="precioInPesos">-</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label"><i class="fas fa-receipt"></i> Precio con comisión</span>
+                <span class="result-value" id="precioMartha">-</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label"><i class="fas fa-chart-line"></i> Ganancia</span>
+                <span class="result-value" id="ganancia">-</span>
+            </div>
+            <div id="totalPrice">Total del artículo: $0.00 MXN</div>
+        </div>
+    </div>
+
+    <script src="/CalcuadoraDePrecios/app.js"></script>
+</body>
+</html>
